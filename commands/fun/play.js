@@ -9,7 +9,7 @@ module.exports = {
     aliases: ["tocar"],
     category: "fun",
     description: "Toca uma música do YT.",
-    usage: "[comando | alias] [link | titulo]",
+    usage: "[comando | alias] [link]",
     run: async (client, message, args) => {
 
     function play(connection,message){
@@ -18,6 +18,14 @@ module.exports = {
         server.queue.shift();
         server.dispatcher.on("end", function(){
             if(server.queue[0]){
+				
+				
+				ytdl.getInfo(videoID, (err, info) => {
+				if (err) throw err;
+					message.channel.send("a teste");
+				});
+				
+				
                 play(connection,message);
             }else{
                 connection.disconnect();
