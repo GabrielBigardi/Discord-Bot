@@ -1,0 +1,35 @@
+Platformer
+Shooter
+Fighting
+Beat'em'up
+Stealth
+Survival
+BattleRoyale
+Rhythm
+Survival Horror
+Metroidvania
+Adventure
+RPG
+MMORPG
+Roguelike
+Roguelite
+Tactical
+Sandbox
+Construction and Management
+Simulation
+Vehicle
+Artillery
+RTS
+Tower Defense
+Turn-based Strategy
+Turn-based Tactics
+Racing
+Sports
+Competitive
+Card
+Casual
+Hyper Casual
+MMO
+Mobile
+Party
+Educational
