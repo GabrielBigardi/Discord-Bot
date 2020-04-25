@@ -80,7 +80,7 @@ client.on('message', async message => {
 		if(message.author.id != "325102217386393604")
 			command.run(client, message, args);
 		else
-			message.channel.send("Vc não tem permissão :(");
+			message.channel.send("Vc não tem permissão, perdão :(");
 	}
 });
 
