@@ -25,7 +25,7 @@ module.exports = {
             var nickName = parsedJson.personaname;
             var lastSeem = new Date(parsedJson.lastlogoff * 1000).toDateString();;
             var timeCreated = new Date(parsedJson.timecreated * 1000).toDateString();;
-            console.log(fullAvatarURL);
+            //console.log(fullAvatarURL);
             const embed = new RichEmbed()
                             .setThumbnail(fullAvatarURL)
                             .setColor('#00FF00')

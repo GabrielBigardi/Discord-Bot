@@ -74,8 +74,6 @@ client.on('message', async message => {
 	let command = client.commands.get(cmd);
 	if(!command) command = client.commands.get(client.aliases.get(cmd));
 
-	console.log(message.author.id);
-
 	if(command){
 		if(message.author.id != "325102217386393604")
 			command.run(client, message, args);
