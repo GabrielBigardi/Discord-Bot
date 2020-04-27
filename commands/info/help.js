@@ -28,8 +28,8 @@ function getAll(client,message){
     }
 
     const info = client.categories
-        .map(cat => stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(cat)}`)
-        .reduce((string, category) => string + "\n\n" + category + "\n");
+        .map(cat => stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(cat)} + \n`)
+        .reduce((string, category) => string + "\n" + category + "\n");
 
     return message.channel.send(embed.setDescription(info));
 }
