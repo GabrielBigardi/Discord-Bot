@@ -40,10 +40,10 @@ client.on('guildMemberAdd', async member => {
     let mask = await jimp.read('projetojimp/mascara.png');
 	let fundo = await jimp.read('projetojimp/fundo.png');
 
-	member.addRole(member.guild.roles.find(role => role.name === "🎮│Membros")).catch(
+	member.addRole(member.guild.roles.find(role => role.name === "🎮│Membros")).catch(() => {
 		console.log("Erro ao tentar adicionar regra não existente a usuário.");
-	);
-	
+	});
+
 	jimp.read(member.user.displayAvatarURL)
         .then(avatar => {
             avatar.resize(130, 130);
