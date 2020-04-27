@@ -71,6 +71,12 @@ module.exports = {
 
                 return numberAffected;
             })
+        }else{
+            let user = {};
+            user.id = member.user.id;
+            user.saldo = "0";
+            let userModel = new User(user);
+            await userModel.save();
         }
     },
 
@@ -91,6 +97,12 @@ module.exports = {
 
                 return numberAffected;
             })
+        }else{
+            let user = {};
+            user.id = member.user.id;
+            user.saldo = "0";
+            let userModel = new User(user);
+            await userModel.save();
         }
     }
 };
