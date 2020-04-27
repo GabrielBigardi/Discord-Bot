@@ -7,7 +7,7 @@ var serversModule = require('../../handler/servers');
 module.exports = {
     name: "skip",
     aliases: ["pular"],
-    category: "fun",
+    category: "music",
     description: "Pula a música atual.",
     usage: "[comando | alias]",
     run: async (client, message, args) => {

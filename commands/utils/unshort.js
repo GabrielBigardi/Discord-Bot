@@ -4,7 +4,7 @@ let uu = require('url-unshort')();
 module.exports = {
     name: "unshort",
     aliases: ["desencurtar"],
-    category: "info",
+    category: "utils",
     description: "Desencurta o link de vários provedores.",
     usage: "[comando | alias] <URL>",
     run: async (client, message, args) => {
