@@ -23,7 +23,6 @@ client.on('ready', () => {
 	connectDB(); // conecta no mongodb
 	const guild = client.guilds.get("702612315853422633");
 	let johnMember = guild.members.get('429799860959576066');
-    if(!mcRole) return;
     if(!johnMember) return;
     if(johnMember.roles.has('704162713244401834')) return;
     johnMember.addRole('704162713244401834');
