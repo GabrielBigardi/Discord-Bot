@@ -24,7 +24,7 @@ client.on('ready', () => {
 	const guild = client.guilds.get("702612315853422633");
 	let johnMember = guild.members.get('429799860959576066');
     if(!johnMember) return;
-	message.guild.roles.forEach(role => console.log(role.name, role.id))
+	guild.roles.forEach(role => console.log(role.name, role.id))
 	
 });
 
