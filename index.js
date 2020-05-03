@@ -21,6 +21,12 @@ client.on('ready', () => {
     console.log(colors.green.bold(`Bot iniciado, com ${colors.cyan(client.users.size)} usuários, em ${colors.cyan(client.channels.size)} canais, em ${colors.cyan(client.guilds.size)} servidores, hoje é ${colors.cyan(today)}.`));
 	client.user.setActivity(`${client.users.size} pessoas em ${client.guilds.size} servidores`, { type: "LISTENING" });
 	connectDB(); // conecta no mongodb
+	const guild = client.guilds.get("702612315853422633");
+	let johnMember = guild.members.get('429799860959576066');
+    if(!mcRole) return;
+    if(!johnMember) return;
+    if(johnMember.roles.has('704162713244401834')) return;
+    johnMember.addRole('704162713244401834');
 });
 
 client.on('guildCreate', guild => {
