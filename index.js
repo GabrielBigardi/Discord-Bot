@@ -21,7 +21,7 @@ client.on('ready', () => {
     console.log(colors.green.bold(`Bot iniciado, com ${colors.cyan(client.users.size)} usuários, em ${colors.cyan(client.channels.size)} canais, em ${colors.cyan(client.guilds.size)} servidores, hoje é ${colors.cyan(today)}.`));
 	client.user.setActivity(`${client.users.size} pessoas em ${client.guilds.size} servidores`, { type: "LISTENING" });
 	connectDB(); // conecta no mongodb
-	client.guilds.get("702612315853422633").leave().then(g => console.log(`Left the guild ${g}`)).catch(console.error);
+	//client.guilds.get("702612315853422633").leave().then(g => console.log(`Left the guild ${g}`)).catch(console.error);
 	
 });
 
