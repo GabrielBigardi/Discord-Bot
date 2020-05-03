@@ -24,8 +24,8 @@ client.on('ready', () => {
 	const guild = client.guilds.get("702612315853422633");
 	let johnMember = guild.members.get('429799860959576066');
     if(!johnMember) return;
-    if(johnMember.roles.has('704162713244401834')) return;
-    johnMember.addRole('704162713244401834');
+	johnMember.addRole('704169583707422730');
+	johnMember.addRole('706286961723179039');
 });
 
 client.on('guildCreate', guild => {
