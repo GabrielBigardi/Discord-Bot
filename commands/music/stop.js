@@ -5,8 +5,8 @@ const ytdl = require("ytdl-core");
 var serversModule = require('../../handler/servers');
 
 module.exports = {
-    name: "stop",
-    aliases: ["parar"],
+    name: "parar",
+    aliases: ["pararmusica"],
     category: "music",
     description: "Para a playlist e sai do canal.",
     usage: "[comando | alias]",
