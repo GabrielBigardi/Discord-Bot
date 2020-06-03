@@ -72,7 +72,6 @@ client.on('message', async message => {
 			
 			message.delete();
 			const embed = new RichEmbed()
-                            .setThumbnail(imageURL)
                             .setColor('#ff0000')
                             .addField('Aviso', stripIndents`**Usuário:** ${message.member.name} falou uma palavra proibida !`, true)
         
