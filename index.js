@@ -62,6 +62,17 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.on('message', async message => {
+	
+	let blacklistedWords = ['fdp', 'cuzão'];
+	let foundInText = true;
+	for (var i in blacklistedWords){
+		if(message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase())) foundInText = true;
+	}
+	if(foundInText){
+		message.delete();
+		message.channel.send("Sem palavrão caraio");
+	}
+	
 	const prefix = "!";
 	
 	if(message.author.bot) return;
@@ -77,18 +88,6 @@ client.on('message', async message => {
 
 	let command = client.commands.get(cmd);
 	if(!command) command = client.commands.get(client.aliases.get(cmd));
-	
-	
-	let blacklistedWords = ['fdp', 'cuzão'];
-	let foundInText = true;
-	for (var i in blacklisted){
-		if(message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase())) foundInText = true;
-	}
-	if(foundInText){
-		message.delete();
-		message.channel.send("Sem palavrão caraio");
-	}
-
 	if(command){
 		if(message.author.id != "325102217386393604")
 			command.run(client, message, args);
