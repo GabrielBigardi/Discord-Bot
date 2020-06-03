@@ -66,12 +66,15 @@ client.on('message', async message => {
 	let blacklistedWords = ['fdp', 'cuzão'];
 	let foundInText = true;
 	for (var i in blacklistedWords){
-		if(message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase())) foundInText = true;
+		if(message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase()))
+		{
+			message.delete();
+			message.channel.send("Sem palavrão caraio");
+		}
 	}
-	if(foundInText){
-		message.delete();
-		message.channel.send("Sem palavrão caraio");
-	}
+	
+	
+	
 	
 	const prefix = "!";
 	
