@@ -69,12 +69,12 @@ client.on('message', async message => {
 	for (var i in blacklistedWords){
 		if(message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase()))
 		{
-			if(!message.member.hasPermission("ADMINISTRATOR")) return;
+			if(message.member.hasPermission("ADMINISTRATOR")) return;
 			
-			message.delete();
+			message.delete(1000);
 			const embed = new RichEmbed()
                             .setColor('#ff0000')
-                            .addField('Aviso', stripIndents`**Usuário:** ${message.member.name} falou uma palavra proibida !`, true)
+                            .addField('Aviso', stripIndents`**Usuário:** ${message.member.user.username} falou uma palavra proibida !`, true)
         
                             message.channel.send(embed);
 		}
