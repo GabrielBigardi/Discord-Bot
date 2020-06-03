@@ -1,4 +1,5 @@
 const { Client, RichEmbed, Collection } = require('discord.js');
+const { stripIndents } = require("common-tags");
 const connectDB = require('./handler/db/connection.js');
 const colors = require('colors');
 const today = new Date().toLocaleDateString();
@@ -68,7 +69,7 @@ client.on('message', async message => {
 	for (var i in blacklistedWords){
 		if(message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase()))
 		{
-			//if(!message.member.hasPermission("ADMINISTRATOR")) return;
+			if(!message.member.hasPermission("ADMINISTRATOR")) return;
 			
 			message.delete();
 			const embed = new RichEmbed()
