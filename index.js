@@ -79,7 +79,7 @@ client.on('message', async message => {
 	if(!command) command = client.commands.get(client.aliases.get(cmd));
 	
 	if (message.content.includes("fdp")) {
-		if(member.roles.cache.has('538484138517200936')) return;
+		//if(member.roles.cache.has('538484138517200936')) return;
 		
 		message.delete(1000);
 		message.channel.send("Palavra proibida cuzão");
