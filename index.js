@@ -64,20 +64,20 @@ client.on('guildMemberAdd', async member => {
 
 client.on('message', async message => {
 	
-	let blacklistedWords = ['fdp', 'cuzão'];
-	for (var i in blacklistedWords){
-		if(message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase()))
-		{
-			if(message.member.hasPermission("ADMINISTRATOR")) return;
-			
-			message.delete(1000);
-			const embed = new RichEmbed()
-                            .setColor('#ff0000')
-                            .addField('Aviso', stripIndents`**Usuário:** ${message.member.user.username} falou uma palavra proibida !`, true)
-        
-                            message.channel.send(embed);
-		}
-	}
+	//let blacklistedWords = ['fdp', 'cuzão'];
+	//for (var i in blacklistedWords){
+	//	if(message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase()))
+	//	{
+	//		if(message.member.hasPermission("ADMINISTRATOR")) return;
+	//		
+	//		message.delete(1000);
+	//		const embed = new RichEmbed()
+    //                        .setColor('#ff0000')
+    //                        .addField('Aviso', stripIndents`**Usuário:** ${message.member.user.username} falou uma palavra proibida !`, true)
+    //    
+    //                        message.channel.send(embed);
+	//	}
+	//}
 	
 	
 	
