@@ -68,6 +68,8 @@ client.on('message', async message => {
 	for (var i in blacklistedWords){
 		if(message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase()))
 		{
+			if(!message.member.hasPermission("ADMINISTRATOR")) return;
+			
 			message.delete();
 			message.channel.send("Sem palavrão caraio");
 		}
