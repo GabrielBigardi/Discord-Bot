@@ -65,7 +65,6 @@ client.on('guildMemberAdd', async member => {
 client.on('message', async message => {
 	
 	let blacklistedWords = ['fdp', 'cuzão'];
-	let foundInText = true;
 	for (var i in blacklistedWords){
 		if(message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase()))
 		{
