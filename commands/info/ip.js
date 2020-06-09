@@ -40,16 +40,16 @@ module.exports = {
                         .setColor('#00FF00')
                         .addField('Informação StreamElements', stripIndents`
                             **IP:** ${args[0]}
-                            **País:** ${country}
-                            **Cidade:** ${city}
-                            **Estado:** ${regionName}
-							**CEP:** ${zip}
-							**Latitude:** ${lat}
-							**Longitude:** ${lon}
-							**Fuso Horário:** ${timezone}
-							**ISP:** ${isp}
-							**ORG:** ${org}
-							**AS:** ${as}`, true);
+                            **País:** ${country == null ? "Desconhecido" : country.toString()}
+                            **Cidade:** ${city == null ? "Desconhecido" : city.toString()}
+                            **Estado:** ${regionName == null ? "Desconhecido" : regionName.toString()}
+							**CEP:** ${zip == null ? "Desconhecido" : zip.toString()}
+							**Latitude:** ${lat == null ? "Desconhecido" : lat.toString()}
+							**Longitude:** ${lon == null ? "Desconhecido" : lon.toString()}
+							**Fuso Horário:** ${timezone == null ? "Desconhecido" : timezone.toString()}
+							**ISP:** ${isp == null ? "Desconhecido" : isp.toString()}
+							**ORG:** ${org == null ? "Desconhecido" : org.toString()}
+							**AS:** ${as == null ? "Desconhecido" : as.toString()}`, true);
             message.channel.send(embed);
 
         });
