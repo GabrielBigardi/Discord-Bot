@@ -4,7 +4,7 @@
 
 const { RichEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
-const https = require('https');
+const http = require('http');
 
 module.exports = {
     name: "ip",
@@ -14,7 +14,7 @@ module.exports = {
     run: async (client, message, args) => {
         if(!args[0]) return;
 
-        https.get(`http://ip-api.com/json/${args[0]}`, (resp) => {
+        http.get(`http://ip-api.com/json/${args[0]}`, (resp) => {
         let data = '';
         resp.on('data', (chunk) => {
             data += chunk;
