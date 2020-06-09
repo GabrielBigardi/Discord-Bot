@@ -40,16 +40,16 @@ module.exports = {
                         .setColor('#00FF00')
                         .addField('Informação StreamElements', stripIndents`
                             **IP:** ${args[0]}
-                            **País:** ${country == null ? "Desconhecido" : country.toString()}
-                            **Cidade:** ${city == null ? "Desconhecido" : city.toString()}
-                            **Estado:** ${regionName == null ? "Desconhecido" : regionName.toString()}
-							**CEP:** ${zip == null ? "Desconhecido" : zip.toString()}
-							**Latitude:** ${lat == null ? "Desconhecido" : lat.toString()}
-							**Longitude:** ${lon == null ? "Desconhecido" : lon.toString()}
-							**Fuso Horário:** ${timezone == null ? "Desconhecido" : timezone.toString()}
-							**ISP:** ${isp == null ? "Desconhecido" : isp.toString()}
-							**ORG:** ${org == null ? "Desconhecido" : org.toString()}
-							**AS:** ${as == null ? "Desconhecido" : as.toString()}`, true);
+                            **País:** ${country == "" ? "Desconhecido" : country.toString()}
+                            **Cidade:** ${city == "" ? "Desconhecido" : city.toString()}
+                            **Estado:** ${regionName == "" ? "Desconhecido" : regionName.toString()}
+							**CEP:** ${zip == "" ? "Desconhecido" : zip.toString()}
+							**Latitude:** ${lat == "" ? "Desconhecido" : lat.toString()}
+							**Longitude:** ${lon == "" ? "Desconhecido" : lon.toString()}
+							**Fuso Horário:** ${timezone == "" ? "Desconhecido" : timezone.toString()}
+							**ISP:** ${isp == "" ? "Desconhecido" : isp.toString()}
+							**ORG:** ${org == "" ? "Desconhecido" : org.toString()}
+							**AS:** ${as == "" ? "Desconhecido" : as.toString()}`, true);
             message.channel.send(embed);
 
         });
