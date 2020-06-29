@@ -34,25 +34,19 @@ module.exports = {
                         'api_user_name' : process.env.pastebin_user_name,
                         'api_user_password' : process.env.pastebin_password
                       });
-
-                    
-                    pastebin.createPaste("Test from pastebin-js", "pastebin-js").then(function (dataPaste) {
-                        console.log(dataPaste);
-                    }).fail(function (errPaste) {
-                        console.log(errPaste);
-                    })
-                    //pastebin.createPaste({
-                    //    text: data,
-                    //    title: "Private Proxies",
-                    //    format: null,
-                    //    privacy: 2,
-                    //    expiration: '10M'
-                    //}).then(function (pasteData) {
-                    //    console.log(pasteData);
-                    //  })
-                    //  .fail(function (pasteErr) {
-                    //    console.log(pasteErr);
-                    //  })
+                      
+                    pastebin.createPaste({
+                        text: data,
+                        title: "Private Proxies",
+                        format: null,
+                        privacy: 2,
+                        expiration: '10M'
+                    }).then(function (pasteData) {
+                        console.log(pasteData);
+                      })
+                      .fail(function (pasteErr) {
+                        console.log(pasteErr);
+                      })
                 });
 
             }).on("error", (err) => {
