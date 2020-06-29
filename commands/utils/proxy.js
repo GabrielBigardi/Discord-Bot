@@ -42,7 +42,13 @@ module.exports = {
                         privacy: 2,
                         expiration: '10M'
                     }).then(function (pasteData) {
-                        console.log(pasteData);
+                        const embed = new RichEmbed()
+                            .setColor('#0000ff')
+                            .addField('Proxy Criado !', stripIndents`
+                                **Link:** ${pasteData}
+                                **Expiração:** 10 minutos`, true)
+        
+                                message.channel.send(embed);
                       })
                       .fail(function (pasteErr) {
                         console.log(pasteErr);
