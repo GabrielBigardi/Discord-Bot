@@ -28,7 +28,7 @@ module.exports = {
         
                 // The whole response has been received. Print out the result.
                 resp.on('end', () => {
-                    message.channel.send("SUCESSO AO PEGAR PROXIES !");
+                    message.channel.send(`SUCESSO AO PEGAR PROXIES ${args[0]}!`);
                 });
 
             }).on("error", (err) => {
