@@ -65,7 +65,7 @@ module.exports = {
                                 **Link:** ${pasteData}
                                 **Expiração:** 10 minutos
                                 **Quantidade:** ${lines} proxies
-                                **Tipo de proxy:** HTTP(S)`, true)
+                                **Tipo de proxy:** ${proxyType}`, true)
         
                                 message.channel.send(embed);
                       })
@@ -77,6 +77,6 @@ module.exports = {
             }).on("error", (err) => {
                 console.log("Error: " + err.message);
             });
-            
+
     }
 }
