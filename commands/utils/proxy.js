@@ -2,6 +2,7 @@ const { getMember, formatDate } = require("../../functions.js");
 const { RichEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const https = require('https');
+const fs = require('fs');
 
 module.exports = {
     name: "proxy",
@@ -28,7 +29,11 @@ module.exports = {
         
                 // The whole response has been received. Print out the result.
                 resp.on('end', () => {
-                    message.channel.send(`${data}`);
+                    fs.writeFileSync('proxiesHTTP.txt', data);
+                    message.channel.send({
+                        files: ['proxiesHTTP.txt']
+                    })
+                    fs.unlinkSync('proxiesHTTP.txt');
                 });
 
             }).on("error", (err) => {
