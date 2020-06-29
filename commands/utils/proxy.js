@@ -29,6 +29,10 @@ module.exports = {
         
                 // The whole response has been received. Print out the result.
                 resp.on('end', () => {
+
+                    var linesArray = data.split("\n");
+                    var lines = linesArray.length;
+
                     var pastebin = new PastebinAPI({
                         'api_dev_key' : process.env.pastebin_api_dev_key,
                         'api_user_name' : process.env.pastebin_user_name,
@@ -46,7 +50,8 @@ module.exports = {
                             .setColor('#0000ff')
                             .addField('Proxy Criado !', stripIndents`
                                 **Link:** ${pasteData}
-                                **Expiração:** 10 minutos`, true)
+                                **Expiração:** 10 minutos
+                                **Quantidade:** ${lines} proxies`, true)
         
                                 message.channel.send(embed);
                       })
