@@ -36,7 +36,12 @@ module.exports = {
                         format: null,
                         privacy: 2,
                         expiration: '10M'
-                    })
+                    }).then(function (pasteData) {
+                        console.log(pasteData);
+                      })
+                      .fail(function (pasteErr) {
+                        console.log(pasteErr);
+                      })
                 });
 
             }).on("error", (err) => {
