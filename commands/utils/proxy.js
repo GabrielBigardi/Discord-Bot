@@ -28,7 +28,7 @@ module.exports = {
         
                 // The whole response has been received. Print out the result.
                 resp.on('end', () => {
-                    message.channel.send(`SUCESSO AO PEGAR PROXIES ${args[0]}!`);
+                    message.channel.send(`${data}`);
                 });
 
             }).on("error", (err) => {
@@ -38,7 +38,41 @@ module.exports = {
 
         }else if(args[0].toLowerCase() == "socks4"){
 
+            https.get(socks4URL, (resp) => {
+                let data = '';
+        
+                // A chunk of data has been recieved.
+                resp.on('data', (chunk) => {
+                    data += chunk;
+                });
+        
+                // The whole response has been received. Print out the result.
+                resp.on('end', () => {
+                    message.channel.send(`${data}`);
+                });
+
+            }).on("error", (err) => {
+                console.log("Error: " + err.message);
+            });
+
         }else if(args[0].toLowerCase() == "socks5"){
+
+            https.get(socks5URL, (resp) => {
+                let data = '';
+        
+                // A chunk of data has been recieved.
+                resp.on('data', (chunk) => {
+                    data += chunk;
+                });
+        
+                // The whole response has been received. Print out the result.
+                resp.on('end', () => {
+                    message.channel.send(`${data}`);
+                });
+
+            }).on("error", (err) => {
+                console.log("Error: " + err.message);
+            });
 
         }
 
