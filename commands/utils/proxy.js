@@ -17,7 +17,20 @@ module.exports = {
         let socks4URL = "https://api.proxyscrape.com/?request=getproxies&proxytype=socks4&timeout=10000&country=all&uptime=0";
         let socks5URL = "https://api.proxyscrape.com/?request=getproxies&proxytype=socks5&timeout=10000&country=all&uptime=0";
 
+        let URLtoUse = "";
+        let proxyType = "";
+
         if(args[0].toLowerCase() == "http"){
+            URLtoUse = httpURL;
+            proxyType = "HTTP(S)";
+        }else if(args[0].toLowerCase() == "socks4"){
+            URLtoUse = socks4URL;
+            proxyType = "SOCKS 4";
+        }else{
+            URLtoUse = socks5URL;
+            proxyType = "SOCKS 5";
+        }
+
 
             https.get(httpURL, (resp) => {
                 let data = '';
@@ -51,7 +64,8 @@ module.exports = {
                             .addField('Proxy Criado !', stripIndents`
                                 **Link:** ${pasteData}
                                 **Expiração:** 10 minutos
-                                **Quantidade:** ${lines} proxies`, true)
+                                **Quantidade:** ${lines} proxies
+                                **Tipo de proxy:** HTTP(S)`, true)
         
                                 message.channel.send(embed);
                       })
@@ -63,47 +77,6 @@ module.exports = {
             }).on("error", (err) => {
                 console.log("Error: " + err.message);
             });
-
-
-        }else if(args[0].toLowerCase() == "socks4"){
-
-            https.get(socks4URL, (resp) => {
-                let data = '';
-        
-                // A chunk of data has been recieved.
-                resp.on('data', (chunk) => {
-                    data += chunk;
-                });
-        
-                // The whole response has been received. Print out the result.
-                resp.on('end', () => {
-                    message.channel.send(`${data}`);
-                });
-
-            }).on("error", (err) => {
-                console.log("Error: " + err.message);
-            });
-
-        }else if(args[0].toLowerCase() == "socks5"){
-
-            https.get(socks5URL, (resp) => {
-                let data = '';
-        
-                // A chunk of data has been recieved.
-                resp.on('data', (chunk) => {
-                    data += chunk;
-                });
-        
-                // The whole response has been received. Print out the result.
-                resp.on('end', () => {
-                    message.channel.send(`${data}`);
-                });
-
-            }).on("error", (err) => {
-                console.log("Error: " + err.message);
-            });
-
-        }
-
+            
     }
 }
