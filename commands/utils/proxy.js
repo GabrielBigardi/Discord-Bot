@@ -32,7 +32,7 @@ module.exports = {
         }
 
 
-            https.get(httpURL, (resp) => {
+            https.get(URLtoUse, (resp) => {
                 let data = '';
         
                 // A chunk of data has been recieved.
