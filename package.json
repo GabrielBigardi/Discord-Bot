@@ -17,6 +17,7 @@
     "leagueapi": "^0.4.21",
     "mongoose": "^5.9.4",
     "opusscript": "0.0.7",
+    "pastebin-js": "^1.0.5",
     "random-puppy": "^1.1.0",
     "tmi.js": "^1.5.0",
     "url-unshort": "^5.0.0",

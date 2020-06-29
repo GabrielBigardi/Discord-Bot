@@ -2,7 +2,7 @@ const { getMember, formatDate } = require("../../functions.js");
 const { RichEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const https = require('https');
-const fs = require('fs');
+var PastebinAPI = require('pastebin-js');
 
 module.exports = {
     name: "proxy",
@@ -29,11 +29,14 @@ module.exports = {
         
                 // The whole response has been received. Print out the result.
                 resp.on('end', () => {
-                    fs.writeFileSync('proxiesHTTP.txt', data);
-                    message.channel.send({
-                        files: ['proxiesHTTP.txt']
+                    var pastebin = new PastebinAPI('63bbb331663f46c4d8586434bb8ed809');
+                    pastebin.createPaste({
+                        text: data,
+                        title: "Private Proxies",
+                        format: null,
+                        privacy: 2,
+                        expiration: '10M'
                     })
-                    fs.unlinkSync('proxiesHTTP.txt');
                 });
 
             }).on("error", (err) => {
