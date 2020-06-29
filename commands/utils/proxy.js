@@ -29,7 +29,13 @@ module.exports = {
         
                 // The whole response has been received. Print out the result.
                 resp.on('end', () => {
-                    var pastebin = new PastebinAPI('63bbb331663f46c4d8586434bb8ed809');
+                    var pastebin = new PastebinAPI({
+                        'api_dev_key' : process.env.pastebin_api_dev_key,
+                        'api_user_name' : process.env.pastebin_user_name,
+                        'api_user_password' : process.env.pastebin_password
+                      });
+
+                    
                     pastebin.createPaste("Test from pastebin-js", "pastebin-js").then(function (dataPaste) {
                         console.log(dataPaste);
                     }).fail(function (errPaste) {
