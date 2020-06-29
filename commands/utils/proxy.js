@@ -64,7 +64,7 @@ module.exports = {
                             .addField('Proxy Criado !', stripIndents`
                                 **Link:** ${pasteData}
                                 **Expiração:** 10 minutos
-                                **Quantidade:** ${lines} proxies
+                                **Quantidade:** ${lines - 1} proxies
                                 **Tipo de proxy:** ${proxyType}`, true)
         
                                 message.channel.send(embed);
