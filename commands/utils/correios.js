@@ -13,6 +13,6 @@ module.exports = {
     run: async (client, message, args) => {
 		if(!args[0]) return;
 
-		TrackingCorreios.track(args[0]).then(console.log)
+		TrackingCorreios.track('SB231363632BR').then(console.log)
 	}
 }
