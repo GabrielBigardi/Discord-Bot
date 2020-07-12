@@ -28,7 +28,7 @@ module.exports = {
 				
 				
 				
-				message.channel.send(dataJson);
+				message.channel.send(dataJson.qtd);
 			});
 			
 			
