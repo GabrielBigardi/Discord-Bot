@@ -24,9 +24,11 @@ module.exports = {
 			});
 			
 			resp.on('end', () => {
-				const embed = new RichEmbed().setColor('#0000ff')
-					.addField('Informação da encomenda', stripIndents`**Data:** ${data}`, true)
-					message.channel.send(embed);
+				var dataJson = JSON.parse(data);
+				
+				
+				
+				message.channel.send(dataJson);
 			});
 			
 			
