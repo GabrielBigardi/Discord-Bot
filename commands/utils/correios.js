@@ -25,10 +25,11 @@ module.exports = {
 			
 			resp.on('end', () => {
 				var dataJson = JSON.parse(data);
-				var dataCidade = dataJson.objeto[0][evento][0][cidade];
-				var dataUF = dataJson.objeto[0][evento][0][uf];
-				var dataDesc dataJson.objeto[0][evento][0][descricao];
-				var dataData = dataJson.objeto[0][evento][0][data];
+				var dataEvento = dataJson.objeto[0].evento[0];
+				var dataCidade = dataJson.cidade;
+				var dataUF = dataJson.uf;
+				var dataDesc dataJson.descricao;
+				var dataData = dataJson.data;
 				
 				
 				
