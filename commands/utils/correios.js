@@ -43,8 +43,5 @@ module.exports = {
                         }).on("error", (err) => {
                             console.log("Error: " + err.message);
                         });
-
-
-						});
 		}
 }
