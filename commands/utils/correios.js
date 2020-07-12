@@ -1,6 +1,8 @@
 const { getMember, formatDate } = require("../../functions.js");
 const { RichEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
+const https = require('https');
+
 
 module.exports = {
     name: "rastreio",
@@ -43,6 +45,6 @@ module.exports = {
                         });
 
 
-                });
-    }
+						});
+		}
 }
