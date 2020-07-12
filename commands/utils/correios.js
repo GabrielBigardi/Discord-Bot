@@ -34,7 +34,6 @@ module.exports = {
 				
 				
 				const embed = new RichEmbed()
-                            .setThumbnail(imageURL)
                             .setColor('#0000ff')
                             .addField('Informação da Skin', stripIndents`
                                 **Local:** ${dataCidade} - ${dataUF}
