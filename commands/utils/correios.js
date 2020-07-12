@@ -28,7 +28,7 @@ module.exports = {
 				
 				
 				
-				message.channel.send(dataJson.objeto.0.nome);
+				message.channel.send(dataJson.objeto."0".nome);
 			});
 			
 			
