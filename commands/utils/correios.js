@@ -28,7 +28,7 @@ module.exports = {
 				var dataEvento = dataJson.objeto[0].evento[0];
 				var dataCidade = dataJson.cidade;
 				var dataUF = dataJson.uf;
-				var dataDesc dataJson.descricao;
+				var dataDesc = dataJson.descricao;
 				var dataData = dataJson.data;
 				
 				
