@@ -20,6 +20,7 @@
     "pastebin-js": "^1.0.5",
     "random-puppy": "^1.1.0",
     "tmi.js": "^1.5.0",
+    "tracking-correios": "^1.2.2",
     "url-unshort": "^5.0.0",
     "uuid": "^3.3.3",
     "ytdl-core": "^2.0.1"
