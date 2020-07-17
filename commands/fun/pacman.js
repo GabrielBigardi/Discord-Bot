@@ -31,7 +31,7 @@ module.exports = {
             time_text: "⏲"
         })
 
-        start.start_game("Teste iniciado")
+        start.start_game(message)
 
     }
 }
