@@ -21,7 +21,7 @@ module.exports = {
         "▣▩◇◇◇▩▩▩ᗧ▩▩▩◇◇◇▩▣",
         "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣"
         ]
-        
+
         let start = new game.PacGame(mapa, 3, {
             win_text: message.author.username + " ganhou!",
             to_lose_text: message.author.username + " perdeu!",
@@ -30,6 +30,8 @@ module.exports = {
             coin_text: "💰",
             time_text: "⏲"
         })
+
+        start.start_game("Teste iniciado")
 
     }
 }
