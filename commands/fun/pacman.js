@@ -21,9 +21,7 @@ module.exports = {
         "▣▩◇◇◇▩▩▩ᗧ▩▩▩◇◇◇▩▣",
         "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣"
         ]
- 
-        let start = new game.PacGame(mapa, 3)
-
+        
         let start = new game.PacGame(mapa, 3, {
             win_text: message.author.username + " ganhou!",
             to_lose_text: message.author.username + " perdeu!",
