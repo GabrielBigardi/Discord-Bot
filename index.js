@@ -18,6 +18,22 @@ client.categories = fs.readdirSync("./commands/");
 	require(`./handler/${handler}`)(client);
 });
 
+// Requires Manager from discord-giveaways
+const { GiveawaysManager } = require("discord-giveaways");
+// Starts updating currents giveaways
+const manager = new GiveawaysManager(client, {
+    storage: "./giveaways.json",
+    updateCountdownEvery: 10000,
+    default: {
+        botsCanWin: false,
+        exemptPermissions: [ "MANAGE_MESSAGES", "ADMINISTRATOR" ],
+        embedColor: "#FF0000",
+        reaction: "🎉"
+    }
+});
+// We now have a giveawaysManager property to access the manager everywhere!
+client.giveawaysManager = manager;
+
 client.on('ready', () => {
     console.log(colors.green.bold(`Bot iniciado, com ${colors.cyan(client.users.size)} usuários, em ${colors.cyan(client.channels.size)} canais, em ${colors.cyan(client.guilds.size)} servidores, hoje é ${colors.cyan(today)}.`));
 	client.user.setActivity(`${client.users.size} pessoas em ${client.guilds.size} servidores`, { type: "LISTENING" });

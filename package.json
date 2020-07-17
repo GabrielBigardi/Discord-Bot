@@ -8,6 +8,7 @@
     "ascii-table": "0.0.9",
     "colors": "^1.4.0",
     "common-tags": "^1.8.0",
+    "discord-giveaways": "^4.2.1",
     "discord.js": "^11.4.2",
     "download-file": "^0.1.5",
     "fs": "0.0.1-security",
