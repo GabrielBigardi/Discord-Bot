@@ -9,7 +9,6 @@ module.exports = {
     usage: "[comando | alias] <usuário> <quantidade>",
     run: async (client, message, args) => {
         const ms = require("ms"); // npm install ms
-        const arguments = message.content.slice(settings.prefix.length).trim().split(/ +/g);
 
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return;
         if(!args[0] || !args[1] || !args[2]) return;
