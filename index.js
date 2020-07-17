@@ -26,7 +26,7 @@ const manager = new GiveawaysManager(client, {
     updateCountdownEvery: 10000,
     default: {
         botsCanWin: false,
-        exemptPermissions: [ "MANAGE_MESSAGES", "ADMINISTRATOR" ],
+        exemptPermissions: [ "" ],
         embedColor: "#FF0000",
         reaction: "🎉"
     }
