@@ -10,7 +10,7 @@ module.exports = {
     description: "Adiciona emoji no servidor.",
     usage: "[comando | alias] <nome> <link>",
     run: async (client, message, args) => {
-        if(!message.member.hasPermission("MANAGE_EMOJIS")) return;
+        //if(!message.member.hasPermission("MANAGE_EMOJIS")) return;
 
         let [nome, emojilink] = args;
         let info = { filename: "emoji.png" };
