@@ -28,7 +28,7 @@ client.on('ready', () => {
 			message.react("👍");
 		})
 	});
-	//client.guilds.get("702612315853422633").leave().then(g => console.log(`Left the guild ${g}`)).catch(console.error);
+	//client.guilds.get("702612315853422633").leave().then(g => console.log(`Left the guild ${g}`)).catch(console.error);a
 	
 });
 
