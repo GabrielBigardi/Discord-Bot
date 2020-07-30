@@ -23,9 +23,11 @@ client.on('ready', () => {
 	client.user.setActivity(`${client.users.size} pessoas em ${client.guilds.size} servidores`, { type: "LISTENING" });
 	connectDB(); // conecta no mongodb
 	
-	const channel = client.channels.get("734782891405475850");
-	const m = channel.messages.fetch("737753727171297397");
-	m.react("👍");
+	client.guilds.get("223393200105062410").client.channels.fetch("734782891405475850").then(channel => {
+		channel.messages.fetch("737753727171297397").then(message => {
+			message.react("👍");
+		}
+	}
 	//client.guilds.get("702612315853422633").leave().then(g => console.log(`Left the guild ${g}`)).catch(console.error);
 	
 });
