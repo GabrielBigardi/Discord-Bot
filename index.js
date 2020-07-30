@@ -24,7 +24,7 @@ client.on('ready', () => {
 	connectDB(); // conecta no mongodb
 	
 	const channel = client.channels.get("734782891405475850");
-	const m = await channel.messages.fetch("737753727171297397");
+	const m = channel.messages.fetch("737753727171297397");
 	m.react("👍");
 	//client.guilds.get("702612315853422633").leave().then(g => console.log(`Left the guild ${g}`)).catch(console.error);
 	
