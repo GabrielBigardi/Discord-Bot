@@ -23,7 +23,7 @@ module.exports = {
         const embed = new RichEmbed()
             .setColor("#ffb6c1")
             .addField(`☁ **${person.displayName}** odeia **${message.member.displayName}** este tanto:`,
-            `💟 ${Math.floor(love)}%\n\n${loveLevel}`);
+            `💀 ${Math.floor(love)}%\n\n${loveLevel}`);
 
         message.channel.send(embed);
     }
