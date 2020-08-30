@@ -2,11 +2,11 @@ const { RichEmbed } = require("discord.js");
 const { getMember  } = require("../../functions.js");
 
 module.exports = {
-    name: "love",
-    aliases: ["amor"],
+    name: "hate",
+    aliases: ["odio"],
     category: "fun",
-    description: "Calcula o amor que você tem por outra pessoa.",
-    usage: "[comando | alias] [username | id | menção]",
+    description: "Calcula o ódio que você tem por outra pessoa.",
+    usage: "[comando | alias] <username | id | menção>",
     run: async (client, message, args) => {
         let person = getMember(message, args[0]);
 
