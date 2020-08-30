@@ -2,10 +2,10 @@ const { RichEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 
 module.exports = {
-    name: "steam",
-    aliases: ["infosteam", "steaminfo"],
+    name: "online",
+    aliases: ["uptime"],
     category: "info",
-    description: "Checa determinado usu?rio steam.",
+    description: "Checa o uptime do bot.",
     usage: "[comando | alias] <SteamID64>",
     run: async (client, message, args) => {
 		let totalSeconds = client.uptime / 1000;
