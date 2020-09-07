@@ -17,15 +17,14 @@ module.exports = {
 			}else{
 				if(result && result.videos.length > 0){
 					const song = result.videos[0];
-					console.log(message.member.voiceChannel);
-					return;
+					//console.log(message.member.voiceChannel);
 					
 					if(!song){
 						
 					}
 					
 					
-					if(!message.member.voice.channel){
+					if(!message.member.voiceChannel){
 						return message.reply("Erro: você não está em um canal de voz !");
 					}
 					
@@ -34,7 +33,7 @@ module.exports = {
 					if(!queue){
 						queue = {
 							volume: 10,
-							voiceChannel: message.member.voice.channel,
+							voiceChannel: message.member.voiceChannel,
 							dispatcher: null,
 							songs: [song]
 						}
