@@ -37,6 +37,7 @@ const playSong = async (client, message, song) => {
 		if(queue){
 			queue.connection.disconnect();
 			client.queues.delete(message.member.guild.id);
+			message.reply("Nada para tocar, saindo do canal de voz.");
 		}
 	}
 
@@ -79,6 +80,7 @@ const playSong = async (client, message, song) => {
 	}else{
 		queue.songs.push(song);
 		client.queues.set(message.member.guild.id);
+		message.reply("Uma música foi adicionada à playlist.");
 	}
 	
 };
