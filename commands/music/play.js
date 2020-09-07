@@ -1,6 +1,7 @@
 const { RichEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const search = require("yt-search");
+consy ytdl = require("ytdl-core-discord");
 
 module.exports = {
     name: "play",
@@ -41,14 +42,16 @@ const playSong = (client, message, song) => {
 	let queue = client.queues.get(message.member.guild.id);
 	
 	if(!queue){
+		const conn = await message.member.voiceChannel.join();
 		queue = {
 			volume: 10,
-			voiceChannel: message.member.voiceChannel,
+			connection: conn,
 			dispatcher: null,
 			songs: [song]
 		}
+		console.log(queue);
 		client.queues.set(message.member.guild.id, queue);
-		console.log(client.queues);
+		//console.log(client.queues);
 	}
 	
 };
