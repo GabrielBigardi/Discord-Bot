@@ -19,27 +19,7 @@ module.exports = {
 					const song = result.videos[0];
 					//console.log(message.member.voiceChannel);
 					
-					if(!song){
-						
-					}
-					
-					
-					if(!message.member.voiceChannel){
-						return message.reply("Erro: você não está em um canal de voz !");
-					}
-					
-					let queue = client.queues.get(message.member.guild.id);
-					
-					if(!queue){
-						queue = {
-							volume: 10,
-							voiceChannel: message.member.voiceChannel,
-							dispatcher: null,
-							songs: [song]
-						}
-						client.queues.set(message.member.guild.id, queue);
-						console.log(client.queues);
-					}
+
 					
 				}
 			}
@@ -50,3 +30,27 @@ module.exports = {
 		
     }
 }
+
+const playSong = (client, message, song) => {
+	if(!song){
+		
+	}
+
+	if(!message.member.voiceChannel){
+		return message.reply("Erro: você não está em um canal de voz !");
+	}
+	
+	let queue = client.queues.get(message.member.guild.id);
+	
+	if(!queue){
+		queue = {
+			volume: 10,
+			voiceChannel: message.member.voiceChannel,
+			dispatcher: null,
+			songs: [song]
+		}
+		client.queues.set(message.member.guild.id, queue);
+		console.log(client.queues);
+	}
+	
+};
