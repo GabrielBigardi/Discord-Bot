@@ -54,7 +54,7 @@ const playSong = async (client, message, song) => {
 			songs: [song]
 		}
 		//console.log(queue);
-		return;
+		//return;
 		
 		//normal
 		//queue.dispatcher = await queue.connection.playStream(await ytdl(song.url), {
@@ -62,10 +62,11 @@ const playSong = async (client, message, song) => {
 		//});
 		
 		//com buffer pra evitar travadas
-		queue.dispatcher = await queue.connection.playStream(await ytdl(song.url, { highWaterMark: 1 << 25 }),
-		{
-			type: "opus"
-		});
+		queue.dispatcher = await queue.connection.playStream(
+			await ytdl(song.url, { highWaterMark: 1 << 25, filter: "audioonly" }),
+			{
+				type: "opus"
+			});
 		
 		
 		queue.dispatcher.on("finish", () =>{
