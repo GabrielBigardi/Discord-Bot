@@ -18,6 +18,7 @@ module.exports = {
 				if(result && result.videos.length > 0){
 					const song = result.videos[0];
 					console.log(song);
+					playSong(client, message, song);
 				}
 			}
 			});
@@ -26,4 +27,14 @@ module.exports = {
 		}
 		
     }
+}
+
+const playSong = (bot,msg,song) => {
+	if(!song){
+		
+	}
+	
+	if(!msg.member.voice.channel){
+		return msg.reply("Vc precisa ta em um canal de voz !");
+	}
 }
