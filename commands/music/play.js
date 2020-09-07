@@ -1,7 +1,7 @@
 const { RichEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const search = require("yt-search");
-consy ytdl = require("ytdl-core-discord");
+const ytdl = require("ytdl-core-discord");
 
 module.exports = {
     name: "play",
@@ -50,8 +50,20 @@ const playSong = (client, message, song) => {
 			songs: [song]
 		}
 		console.log(queue);
+		
+		queue.dispatcher = await queue.connection.play(await ytdl(song.url), {
+			type: "opus"
+		});
+		queue.dispatcher.on("finish", () =>{
+			queue.songs.shift();
+			playSong(client, message, queue.songs[0]);
+		});
+		
 		client.queues.set(message.member.guild.id, queue);
-		//console.log(client.queues);
+		
+	}else{
+		queue.songs.push(song);
+		client.queues.set(message.member.guild.id);
 	}
 	
 };
