@@ -31,15 +31,19 @@ module.exports = {
 }
 
 const playSong = async (client, message, song) => {
+	let queue = client.queues.get(message.member.guild.id);
+	
 	if(!song){
-		
+		if(queue){
+			queue.connection.disconnect();
+			client.queues.delete(message.member.guild.id);
+		}
 	}
 
 	if(!message.member.voiceChannel){
 		return message.reply("Erro: você não está em um canal de voz !");
 	}
-	
-	let queue = client.queues.get(message.member.guild.id);
+
 	
 	if(!queue){
 		const conn = await message.member.voiceChannel.join();
@@ -49,7 +53,11 @@ const playSong = async (client, message, song) => {
 			dispatcher: null,
 			songs: [song]
 		}
-		console.log(queue);
+		//console.log(queue);
+		
+		console.log(queue.connection.play);
+		console.log(queue.connection.playStream);
+		return;
 		
 		queue.dispatcher = await queue.connection.play(await ytdl(song.url), {
 			type: "opus"
