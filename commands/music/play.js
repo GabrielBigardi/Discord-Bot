@@ -58,16 +58,16 @@ const playSong = async (client, message, song) => {
 		//return;
 		
 		//normal
-		//queue.dispatcher = await queue.connection.playStream(await ytdl(song.url), {
-		//	type: "opus"
-		//});
+		queue.dispatcher = await queue.connection.playStream(await ytdl(song.url), {
+			type: "opus"
+		});
 		
 		//com buffer pra evitar travadas
-		queue.dispatcher = await queue.connection.playStream(
-			await ytdl(song.url, { highWaterMark: 1 << 25, filter: "audioonly" }),
-			{
-				type: "opus"
-			});
+		//ueue.dispatcher = await queue.connection.playStream(
+		//	await ytdl(song.url, { highWaterMark: 1 << 25, filter: "audioonly" }),
+		//	{
+		//		type: "opus"
+		//	});
 		
 		
 		queue.dispatcher.on("finish", () =>{
