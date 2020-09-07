@@ -76,11 +76,12 @@ const playSong = async (client, message, song) => {
 		});
 		
 		client.queues.set(message.member.guild.id, queue);
+		message.reply("Tocando música.");
 		
 	}else{
 		queue.songs.push(song);
 		client.queues.set(message.member.guild.id);
-		message.reply("Uma música foi adicionada à playlist.");
+		message.reply("Troca de música.");
 	}
 	
 };
