@@ -17,14 +17,27 @@ module.exports = {
 			}else{
 				if(result && result.videos.length > 0){
 					const song = result.videos[0];
-					console.log(song);
+					//console.log(song);
 					if(!song){
 						
 					}
 					if(!message.member.voice.channel){
 						return message.reply("Erro: você não está em um canal de voz !");
 					}
-					const queue = client.queues.get(message.member.guild.id);
+					
+					let queue = client.queues.get(message.member.guild.id);
+					
+					if(!queue){
+						queue = {
+							volume: 10,
+							voiceChannel: message.member.voice.channel,
+							dispatcher: null,
+							songs: [song]
+						}
+						client.queues.set(message.member.guild.id, queue);
+						console.log(client.queues);
+					}
+					
 				}
 			}
 			});
