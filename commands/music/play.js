@@ -18,7 +18,13 @@ module.exports = {
 				if(result && result.videos.length > 0){
 					const song = result.videos[0];
 					console.log(song);
-					playSong(client, message, song);
+					if(!song){
+						
+					}
+					if(!message.member.voice.channel){
+						return message.reply("Erro: você não está em um canal de voz !");
+					}
+					const queue = client.queues.get(message.member.guild.id);
 				}
 			}
 			});
@@ -27,14 +33,4 @@ module.exports = {
 		}
 		
     }
-}
-
-const playSong = (bot,msg,song) => {
-	if(!song){
-		
-	}
-	
-	if(!msg.member.voice.channel){
-		return msg.reply("Vc precisa ta em um canal de voz !");
-	}
 }
