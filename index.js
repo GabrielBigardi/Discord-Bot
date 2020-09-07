@@ -1,6 +1,5 @@
 const { Client, RichEmbed, Collection } = require('discord.js');
 const { stripIndents } = require("common-tags");
-const connectDB = require('./handler/db/connection.js');
 const colors = require('colors');
 const today = new Date().toLocaleDateString();
 const fs = require("fs");
@@ -21,7 +20,6 @@ client.categories = fs.readdirSync("./commands/");
 client.on('ready', () => {
     console.log(colors.green.bold(`Bot iniciado, com ${colors.cyan(client.users.size)} usuários, em ${colors.cyan(client.channels.size)} canais, em ${colors.cyan(client.guilds.size)} servidores, hoje é ${colors.cyan(today)}.`));
 	client.user.setActivity(`${client.users.size} pessoas em ${client.guilds.size} servidores`, { type: "LISTENING" });
-	connectDB(); // conecta no mongodb
 
 	//client.guilds.get("702612315853422633").leave().then(g => console.log(`Left the guild ${g}`)).catch(console.error);a
 	
@@ -29,12 +27,12 @@ client.on('ready', () => {
 
 client.on('guildCreate', guild => {
     console.log(colors.green.bold(`O bot entrou no servidor: ${guild.name} (id: ${guild.id}. População: ${guild.memberCount} membros !)`));
-    client.user.setActivity(`${client.guilds.size} servidores`, { type: "LISTENING" });
+    client.user.setActivity(`${client.users.size} pessoas em ${client.guilds.size} servidores`, { type: "LISTENING" });
 });
 
 client.on('guildDelete', guild => {
     console.log(colors.green.bold(`O bot foi removido do servidor: ${guild.name} (id: ${guild.id})`));
-    client.user.setActivity(`${client.guilds.size} servidores`, { type: "LISTENING" });
+    client.user.setActivity(`${client.users.size} pessoas em ${client.guilds.size} servidores`, { type: "LISTENING" });
 });
 
 client.on('guildMemberAdd', async member => {
@@ -64,25 +62,6 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.on('message', async message => {
-	
-	//let blacklistedWords = ['fdp', 'cuzão'];
-	//for (var i in blacklistedWords){
-	//	if(message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase()))
-	//	{
-	//		if(message.member.hasPermission("ADMINISTRATOR")) return;
-	//		
-	//		message.delete(1000);
-	//		const embed = new RichEmbed()
-    //                        .setColor('#ff0000')
-    //                        .addField('Aviso', stripIndents`**Usuário:** ${message.member.user.username} falou uma palavra proibida !`, true)
-    //    
-    //                        message.channel.send(embed);
-	//	}
-	//}
-	
-	
-	
-	
 	const prefix = "!";
 	
 	if(message.author.bot) return;
