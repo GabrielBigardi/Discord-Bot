@@ -27,7 +27,7 @@
     "url-unshort": "^5.0.0",
     "uuid": "^3.3.3",
     "yt-search": "^2.3.0",
-    "ytdl-core": "^2.0.1",
+    "ytdl-core": "^2.1.7",
     "ytdl-core-discord": "^1.2.1"
   },
   "devDependencies": {},
