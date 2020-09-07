@@ -54,14 +54,20 @@ const playSong = async (client, message, song) => {
 			songs: [song]
 		}
 		//console.log(queue);
-		
-		console.log(queue.connection.play);
-		console.log(queue.connection.playStream);
 		return;
 		
-		queue.dispatcher = await queue.connection.play(await ytdl(song.url), {
+		//normal
+		//queue.dispatcher = await queue.connection.playStream(await ytdl(song.url), {
+		//	type: "opus"
+		//});
+		
+		//com buffer pra evitar travadas
+		queue.dispatcher = await queue.connection.playStream(await ytdl(song.url, { highWaterMark: 1 << 25 }),
+		{
 			type: "opus"
 		});
+		
+		
 		queue.dispatcher.on("finish", () =>{
 			queue.songs.shift();
 			playSong(client, message, queue.songs[0]);
