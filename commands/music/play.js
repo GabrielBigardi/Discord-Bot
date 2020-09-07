@@ -18,9 +18,7 @@ module.exports = {
 				if(result && result.videos.length > 0){
 					const song = result.videos[0];
 					//console.log(message.member.voiceChannel);
-					
-
-					
+					playSong(client, message, song);
 				}
 			}
 			});
