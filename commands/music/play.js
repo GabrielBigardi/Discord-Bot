@@ -54,7 +54,7 @@ const playSong = async (client, message, song) => {
 			dispatcher: null,
 			songs: [song]
 		}
-		//console.log(queue);
+		console.log(queue);
 		//return;
 		
 		//normal
