@@ -17,10 +17,14 @@ module.exports = {
 			}else{
 				if(result && result.videos.length > 0){
 					const song = result.videos[0];
-					//console.log(song);
+					console.log(message.member.voice);
+					return;
+					
 					if(!song){
 						
 					}
+					
+					
 					if(!message.member.voice.channel){
 						return message.reply("Erro: você não está em um canal de voz !");
 					}
