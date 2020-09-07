@@ -15,7 +15,10 @@ module.exports = {
 			if(err){
 				throw err;
 			}else{
-				console.log(result);
+				if(result && result.videos.length > 0){
+					const song = result.videos[0];
+					console.log(song);
+				}
 			}
 			});
 		} catch(e) {
