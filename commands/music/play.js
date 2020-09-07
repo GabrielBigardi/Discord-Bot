@@ -15,14 +15,14 @@ module.exports = {
 			search(s, (err,result) => {
 			if(err){
 				console.log("Erro: " + err);
-			}else{
-				if(result && result.videos.length > 0){
+			}else if (result && result.videos.length > 0){
 					const song = result.videos[0];
 					//console.log(message.member.voiceChannel);
 					playSong(client, message, song);
-				}
+			}else{
+				return message.reply("ERRO: não foi encontrado nenhum vídeo.");
 			}
-			});
+		});
 		} catch(e) {
 			console.error(e);
 		}
@@ -30,7 +30,7 @@ module.exports = {
     }
 }
 
-const playSong = (client, message, song) => {
+const playSong = async (client, message, song) => {
 	if(!song){
 		
 	}
