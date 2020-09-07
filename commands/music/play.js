@@ -13,11 +13,11 @@ module.exports = {
 		try{
 			search(s, (err,result) => {
 			if(err){
-				throw err;
+				console.log("Erro: " + err);
 			}else{
 				if(result && result.videos.length > 0){
 					const song = result.videos[0];
-					console.log(message.member.voice);
+					console.log(message.member.voiceChannel);
 					return;
 					
 					if(!song){
