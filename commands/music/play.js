@@ -62,6 +62,8 @@ const playSong = async (client, message, song) => {
 			type: "opus"
 		});
 		
+		queue.dispatcher.setVolumeLogarithmic(5/5);
+		
 		console.log("QueueLog " + queue.dispatcher);
 		
 		//com buffer pra evitar travadas
