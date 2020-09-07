@@ -54,13 +54,15 @@ const playSong = async (client, message, song) => {
 			dispatcher: null,
 			songs: [song]
 		}
-		console.log(queue);
+		console.log("QueueLog " + queue);
 		//return;
 		
 		//normal
 		queue.dispatcher = await queue.connection.playStream(await ytdl(song.url), {
 			type: "opus"
 		});
+		
+		console.log("QueueLog " + queue.dispatcher);
 		
 		//com buffer pra evitar travadas
 		//ueue.dispatcher = await queue.connection.playStream(
