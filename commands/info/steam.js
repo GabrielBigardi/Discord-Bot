@@ -1,6 +1,6 @@
 //http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=65D44EDA5357210475FBE865A02D2844&steamid=76561197960434622&format=json
 
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const https = require('https');
 
@@ -26,7 +26,7 @@ module.exports = {
             var lastSeem = new Date(parsedJson.lastlogoff * 1000).toDateString();;
             var timeCreated = new Date(parsedJson.timecreated * 1000).toDateString();;
             //console.log(fullAvatarURL);
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                             .setThumbnail(fullAvatarURL)
                             .setColor('#00FF00')
                             .addField('Informação Steam', stripIndents`

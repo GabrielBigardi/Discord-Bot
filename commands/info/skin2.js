@@ -1,5 +1,5 @@
 const { getMember } = require("../../functions.js");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const https = require('https');
 
@@ -97,7 +97,7 @@ module.exports = {
 
         if(argumento === "usp"){
             if(!armaid){
-                const embed = new RichEmbed()
+                const embed = new MessageEmbed()
                 .setTitle("Informações sobre USPS")
                 .setColor('#0000ff')
 
@@ -158,7 +158,7 @@ module.exports = {
                                         var precoMenor = JSON.parse(data).lowest_price;
                                         var precoMedio = JSON.parse(data).median_price;
                 
-                                        const embed = new RichEmbed()
+                                        const embed = new MessageEmbed()
                                         .setThumbnail(imageURL)
                                         .setColor('#0000ff')
                                         .addField('Informação da Skin', stripIndents`

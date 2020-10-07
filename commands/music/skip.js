@@ -4,33 +4,21 @@ const search = require("yt-search");
 const ytdl = require("ytdl-core-discord");
 
 module.exports = {
-    name: "play",
-    aliases: ["tocar"],
+    name: "skip",
+    aliases: ["pular"],
     category: "music",
-    description: "Toca uma música.",
-    usage: "[comando | alias] <Link/Nome>",
+    description: "Pula a música atual.",
+    usage: "[comando | alias]",
     run: async (client, message, args) => {
-		const s = args.join(" ");
-		try {
-			search(s, (err, result) => {
-				if (err) {
-					throw err;
-				} else if (result && result.videos.length > 0) {
-					const song = result.videos[0];
-					const queue = client.queues.get(message.guild.id);
-					if (queue) {
-						queue.songs.push(song);
-						client.queues.set(message.guild.id, queue);
-					} else playSong(client, message, song);
-				} else {
-					return message.reply("desculpe, não encontrei o que você desejava!");
-				}
-			});
-		} catch (e) {
-			console.error(e);
+		const queue = client.queues.get(message.guild.id);
+		if (!queue) {
+			return message.reply("não existe nenhuma música sendo reproduzida");
 		}
+		queue.songs.shift();
+		client.queues.set(message.guild.id, queue);
+		playSong(client, message, queue.songs[0]);
 	}
-};
+}
 
 const playSong = async (client, message, song) => {
 	let queue = client.queues.get(message.member.guild.id);

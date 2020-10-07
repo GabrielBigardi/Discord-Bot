@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
 		
 		let uptime = `🗓️ ${hours.toFixed()} horas\n🗓️ ${minutes.toFixed()} minutos\n🗓️ ${seconds.toFixed()} segundos`;
 		
-		const embed = new RichEmbed()
+		const embed = new MessageEmbed()
 		.setTitle(`Tempo de atividade 🕰️`)
 		.setThumbnail("https://imgur.com/WZMylbw.gif")
 		.setColor("#2C2F33")

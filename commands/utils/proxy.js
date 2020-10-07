@@ -1,5 +1,5 @@
 const { getMember, formatDate } = require("../../functions.js");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const https = require('https');
 var PastebinAPI = require('pastebin-js');
@@ -59,7 +59,7 @@ module.exports = {
                         privacy: 2,
                         expiration: '10M'
                     }).then(function (pasteData) {
-                        const embed = new RichEmbed()
+                        const embed = new MessageEmbed()
                             .setColor('#0000ff')
                             .addField('Proxy Criado !', stripIndents`
                                 **Link:** ${pasteData}

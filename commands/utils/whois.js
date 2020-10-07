@@ -1,5 +1,5 @@
 const { getMember, formatDate } = require("../../functions.js");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 
 module.exports = {
@@ -20,9 +20,9 @@ module.exports = {
 
         //user variables
         const created = formatDate(member.user.createdAt);
-        const embed = new RichEmbed()
-            .setFooter(member.displayName, member.user.displayAvatarURL)
-            .setThumbnail(member.user.displayAvatarURL)
+        const embed = new MessageEmbed()
+            .setFooter(member.displayName, member.user.displayAvatarURL())
+            .setThumbnail(member.user.displayAvatarURL())
             .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
 
             .addField('Informação do membro', stripIndents`

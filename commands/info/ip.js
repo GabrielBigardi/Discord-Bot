@@ -2,7 +2,7 @@
 //https://api.streamelements.com/kappa/v2/points/5b64234fe8fd184d761eadcf/naoconhecido
 
 
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const http = require('http');
 
@@ -36,7 +36,7 @@ module.exports = {
 			var as = parsedJson.as;
 
 
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                         .setColor('#00FF00')
                         .addField('Informação StreamElements', stripIndents`
                             **IP:** ${args[0]}

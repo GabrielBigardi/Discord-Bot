@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
         if(!Number.isInteger(integer)) return;
         
         if(integer > 100){
-            const embed = new RichEmbed();
+            const embed = new MessageEmbed();
             let info = `Desculpe, só consigo apagar até **100 linhas**`;
             
             embed.setColor("RED")
@@ -26,7 +26,7 @@ module.exports = {
         }
 
         message.channel.bulkDelete(integer).then(() => {
-            const embed = new RichEmbed();
+            const embed = new MessageEmbed();
             let info = `Foram apagadas **${integer}** mensagens.`;
             
             embed
@@ -34,7 +34,7 @@ module.exports = {
             .setDescription(info)
             .setTitle('**Sucesso**');
 
-            message.channel.send(embed).then(msg => msg.delete(2000));
+            message.channel.send(embed).then(msg => msg.delete({ timeout: 2000, reason: 'Auto-delete.' }));
         });
     }
 }

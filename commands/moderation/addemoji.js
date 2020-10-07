@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { getMember } = require("../../functions.js");
 const download = require('download-file');
 
@@ -21,10 +21,10 @@ module.exports = {
         download(emojilink, info, function (err) {
             if (!err) {
                 try {
-                    message.guild.createEmoji('emoji.png', nome);
+                    message.guild.emojis.create('emoji.png', nome);
                     message.channel.send("O emoji foi adicionado ao seu servidor");
-                } catch{
-                    console.log("Erro ao tentar adicionar emoji");
+                } catch(error) {
+                    console.log("Erro ao tentar adicionar emoji: " + error);
                 }
             } else {
                 message.channel.send("Link inválido");

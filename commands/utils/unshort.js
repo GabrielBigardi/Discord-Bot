@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 let uu = require('url-unshort')();
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
         uu.expand(args[0])
         .then(url => {
             if (url){
-                const embed = new RichEmbed();
+                const embed = new MessageEmbed();
                 let info = `Link desencurtado: **${url}**`;
 
                 embed
@@ -23,7 +23,7 @@ module.exports = {
 
                 message.channel.send(embed);
             } else {
-                const embed = new RichEmbed();
+                const embed = new MessageEmbed();
                 let info = `**Falha ao desencurtar URL.**`;
 
                 embed
