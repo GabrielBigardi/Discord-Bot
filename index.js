@@ -39,7 +39,7 @@ client.on('guildDelete', guild => {
 
 client.on('guildMemberAdd', async member => {
 	console.log(colors.green.bold(`Um membro foi adicionado: ${member.user.username}`));
-	let canal = client.channels.get('691183263204507679');
+	let canal = client.channels.cache.get('691183263204507679');
 	let fonte = await jimp.loadFont(jimp.FONT_SANS_32_BLACK);
     let mask = await jimp.read('projetojimp/mascara.png');
 	let fundo = await jimp.read('projetojimp/fundo.png');
