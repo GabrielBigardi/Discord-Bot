@@ -20,7 +20,7 @@ module.exports = {
 
         let URL = "https://gamersclub.com.br/lobbyBeta/listRooms";
 
-        https.get(url, (resp) => {
+        https.get(URL, (resp) => {
             let data = '';
         
             // A chunk of data has been recieved.
