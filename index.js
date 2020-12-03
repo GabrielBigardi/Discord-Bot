@@ -22,7 +22,10 @@ client.queues = new Map();
 client.on('ready', () => {
     console.log(colors.green.bold(`Bot iniciado, com ${colors.cyan(client.users.cache.size)} usuários, em ${colors.cyan(client.channels.cache.size)} canais, em ${colors.cyan(client.guilds.cache.size)} servidores, hoje é ${colors.cyan(today)}.`));
 	client.user.setActivity(`${client.users.cache.size} pessoas em ${client.guilds.cache.size} servidores`, { type: "LISTENING" });
-
+	
+	// Getting all emojis from a server
+    client.guilds.cache.get("691096923666645032").emojis.cache.forEach(emoji => console.log(emoji.animated ? '<a:' + emoji.name + ':' + emoji.id + '>' : '<:' + emoji.name + ':' + emoji.id + '>'));
+	
 	//client.guilds.get("702612315853422633").leave().then(g => console.log(`Left the guild ${g}`)).catch(console.error);a
 	
 });
@@ -70,19 +73,21 @@ client.on('message', async message => {
 	if(message.channel.type === "dm") return;
 	if(!message.guild) return;
 	
-	if (message.mentions.has(client.user.id) && message.mentions.users.first().id == client.user.id) {
-	    message.channel.send("Olá <@" + message.author.id + "> meu prefixo é ``!``, para ver o que tenho para oferecer digite ``!ajuda``!");
+	
+	let checkArgs = message.content.slice(' ').trim().split(/ +/g);
+	
+	if (checkArgs.length == 1 && checkArgs[0] == `<@!${client.user.id}>`) {
+		message.channel.send("Olá <@" + message.author.id + "> meu prefixo é ``!``, para ver o que tenho para oferecer digite ``!ajuda``!");
 		return;
 	}
+	
 	
 	if(!message.content.startsWith(prefix)) return;
 	if(!message.member) message.member = await message.guild.members.fetch(message);
 	
-	
-	
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
 	const cmd = args.shift().toLowerCase();
-
+	
 	if(cmd.length === 0) return;
 
 	let command = client.commands.get(cmd);
