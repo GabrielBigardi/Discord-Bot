@@ -69,8 +69,16 @@ client.on('message', async message => {
 	if(message.author.bot) return;
 	if(message.channel.type === "dm") return;
 	if(!message.guild) return;
+	
+	if (message.mentions.has(client.user.id) && message.mentions.users.first().id == client.user.id) {
+	    message.channel.send("Olá <@" + message.author.id + "> meu prefixo é ``!``, para ver o que tenho para oferecer digite ``!ajuda``!");
+		return;
+	}
+	
 	if(!message.content.startsWith(prefix)) return;
 	if(!message.member) message.member = await message.guild.members.fetch(message);
+	
+	
 	
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
 	const cmd = args.shift().toLowerCase();
@@ -80,10 +88,10 @@ client.on('message', async message => {
 	let command = client.commands.get(cmd);
 	if(!command) command = client.commands.get(client.aliases.get(cmd));
 	if(command){
-		if(message.author.id != "325102217386393604")
+		//if(message.author.id != "325102217386393604")
 			command.run(client, message, args);
-		else
-			message.channel.send("Vc não tem permissão, perdão :(");
+		//else
+		//	message.channel.send("Vc não tem permissão, perdão :(");
 	}
 });
 
