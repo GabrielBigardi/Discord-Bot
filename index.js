@@ -24,7 +24,7 @@ client.on('ready', () => {
 	client.user.setActivity(`${client.users.cache.size} pessoas em ${client.guilds.cache.size} servidores`, { type: "LISTENING" });
 	
 	// Getting all emojis from a server
-    client.guilds.cache.get("691096923666645032").emojis.cache.forEach(emoji => console.log(emoji.animated ? '<a:' + emoji.name + ':' + emoji.id + '>' : '<:' + emoji.name + ':' + emoji.id + '>'));
+    client.guilds.cache.get("766716495169716265").emojis.cache.forEach(emoji => console.log(emoji.animated ? '<a:' + emoji.name + ':' + emoji.id + '>' : '<:' + emoji.name + ':' + emoji.id + '>'));
 	
 	//client.guilds.get("702612315853422633").leave().then(g => console.log(`Left the guild ${g}`)).catch(console.error);a
 	
