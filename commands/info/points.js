@@ -4,7 +4,7 @@ const https = require('https');
 
 module.exports = {
     name: "pontos",
-    aliases: ["coins"],
+    aliases: ["points"],
     category: "info",
     description: "Checa pontos de determinado usuário.",
     usage: "[comando | alias] <usuário>",
@@ -27,7 +27,7 @@ module.exports = {
             
         
             if(pontos){
-                const embed = new RichEmbed()
+                const embed = new MessageEmbed()
                             .setColor('#00FF00')
                             .addField('Informação StreamElements', stripIndents`
                                 **Nome:** ${args[0]}
@@ -37,7 +37,7 @@ module.exports = {
                                 **Rank:** ${rank}`, true);
                 message.channel.send(embed);
             }else{
-                const embed = new RichEmbed()
+                const embed = new MessageEmbed()
                             .setColor('#FF0000')
                             .addField('Erro ao executar comando', stripIndents`
                                 **USUÁRIO NÃO ENCONTRADO !**`, true);
