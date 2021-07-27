@@ -22,12 +22,6 @@ client.queues = new Map();
 client.on('ready', () => {
     console.log(colors.green.bold(`Bot iniciado, com ${colors.cyan(client.users.cache.size)} usuários, em ${colors.cyan(client.channels.cache.size)} canais, em ${colors.cyan(client.guilds.cache.size)} servidores, hoje é ${colors.cyan(today)}.`));
 	client.user.setActivity(`${client.users.cache.size} pessoas em ${client.guilds.cache.size} servidores`, { type: "LISTENING" });
-	
-	// Getting all emojis from a server
-    client.guilds.cache.get("766716495169716265").emojis.cache.forEach(emoji => console.log(emoji.animated ? '<a:' + emoji.name + ':' + emoji.id + '>' : '<:' + emoji.name + ':' + emoji.id + '>'));
-	
-	//client.guilds.get("702612315853422633").leave().then(g => console.log(`Left the guild ${g}`)).catch(console.error);a
-	
 });
 
 client.on('guildCreate', guild => {
@@ -42,23 +36,6 @@ client.on('guildDelete', guild => {
 
 client.on('guildMemberAdd', async member => {
 	console.log(colors.green.bold(`Um membro foi adicionado: ${member.user.username}`));
-	//let canal = client.channels.cache.get('691183263204507679');
-	//let fonte = await jimp.loadFont(jimp.FONT_SANS_32_BLACK);
-    //let mask = await jimp.read('projetojimp/mascara.png');
-	//let fundo = await jimp.read('projetojimp/fundo.png');
-    //
-	//jimp.read(member.user.displayAvatarURL())
-    //    .then(avatar => {
-    //        avatar.resize(130, 130);
-    //        mask.resize(130, 130);
-    //        avatar.mask(mask);
-    //        fundo.print(fonte, 170, 175, member.user.username);
-    //        fundo.composite(avatar, 22, 90).write('bemvindo.png');
-    //        canal.send(``, { files: ["bemvindo.png"] });
-    //    })
-    //    .catch(err => {
-    //        console.log('Erro ao carregar imagem: ' + err);
-    //    });
 });
 
 client.on('message', async message => {
