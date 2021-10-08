@@ -25,7 +25,7 @@ module.exports = {
 				return;
 			}
 			
-			GetFarmStatus(channelData, args[0]).then(farmData => {
+			GetPoints(channelData, args[0]).then(farmData => {
 				//console.log(farmData)
 				
 				if(IsUndefined(farmData.points)){
@@ -54,25 +54,13 @@ module.exports = {
 		}).catch(error => {
 			console.log(error);
 		})
-//var parsedJson = JSON.parse(data);
-//var pontos = parsedJson.points;
-//var pontosTotais = parsedJson.pointsAlltime;
-//var assistido = parsedJson.watchtime;
-//var rank = parsedJson.rank;
-//if(pontos){
-//
-//}else{
-//	const embed = new MessageEmbed()
-//				.setColor('#FF0000')
-//				.addField('Erro ao executar comando', stripIndents`
-//					**USUÁRIO NÃO ENCONTRADO !**`, true);
-//	message.channel.send(embed);
-//}
     }
 }
 
 function GetChannelData(channelName)
 {
+	//Example URL: https://api.streamelements.com/kappa/v2/channels/c9judite
+	//Response: {"channel":"5989df9d5fbe120a16fd3ae0","username":"naoconhecido","points":18418,"pointsAlltime":113518,"watchtime":696220,"rank":555}
 	return new Promise((resolve, reject) => {
 		https.get(`https://api.streamelements.com/kappa/v2/channels/${channelName}`, (resp) => {
 			let data = '';
@@ -96,10 +84,38 @@ function GetChannelData(channelName)
 	});
 }
 
-function GetFarmStatus(channelData, username)
+function GetPoints(channelData, username)
 {
+	//Example URL: https://api.streamelements.com/kappa/v2/points/5989df9d5fbe120a16fd3ae0/naoconhecido
+	//Response: {"channel":"5989df9d5fbe120a16fd3ae0","username":"naoconhecido","points":18418,"pointsAlltime":113518,"watchtime":696220,"rank":555}
 	return new Promise((resolve, reject) => {
 		https.get(`https://api.streamelements.com/kappa/v2/points/${channelData._id}/${username}`, (resp) => {
+			let data = '';
+			resp.on('data', (chunk) => {
+				data += chunk;
+			});
+		
+			resp.on('end', () => {
+				try{
+					const parsedData = JSON.parse(data);
+					resolve(parsedData);
+				}catch(e){
+					reject(e.message);
+				}
+			});
+	
+		}).on("error", (err) => {
+			reject(e.message);
+		});
+	});
+}
+
+function GetLoyaltyData(channelId)
+{
+	//Example URL: https://api.streamelements.com/kappa/v2/loyalty/5989df9d5fbe120a16fd3ae0
+	//Response: {"loyalty":{"bonuses":{"follow":0,"tip":5,"subscriber":110,"cheer":15,"host":0},"name":"lupicoins","enabled":true,"amount":1,"subscriberMultiplier":2,"ignored":["streamelements","jschritte","lurxx","advogg","lolrankbot","blindaobot","bielsm7","itsvodoo","aten","treadmillthewhale","winsock","3jask","commanderroot"]},"_id":"5989df9d5fbe120a16fd3af7","updatedAt":"2021-10-08T17:32:03.781Z","createdAt":"2017-08-08T15:58:21.096Z","channel":"5989df9d5fbe120a16fd3ae0"}
+	return new Promise((resolve, reject) => {
+		https.get(`https://api.streamelements.com/kappa/v2/loyalty/${channelData._id}`, (resp) => {
 			let data = '';
 			resp.on('data', (chunk) => {
 				data += chunk;
