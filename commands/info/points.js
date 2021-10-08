@@ -14,8 +14,30 @@ module.exports = {
 		
 		GetChannelData(args[1]).then(channelData => {
 			//console.log(channelData);
+			
+			if(IsUndefined(channelData.displayName)){
+				const embed = new MessageEmbed()
+						.setColor('#FF0000')
+						.addField('Erro ao executar comando', stripIndents`
+							**STREAMER NÃO ENCONTRADO !**`, true);
+							
+				message.channel.send(embed);
+				return;
+			}
+			
 			GetFarmStatus(channelData, args[0]).then(farmData => {
 				//console.log(farmData)
+				
+				if(IsUndefined(farmData.points)){
+					const embed = new MessageEmbed()
+							.setColor('#FF0000')
+							.addField('Erro ao executar comando', stripIndents`
+								**USUÁRIO NÃO ENCONTRADO !**`, true);
+								
+					message.channel.send(embed);
+					return;
+				}
+				
 				const embed = new MessageEmbed()
 					.setColor('#00FF00')
 					.addField('Informação StreamElements', stripIndents`
@@ -96,4 +118,9 @@ function GetFarmStatus(channelData, username)
 			reject(e.message);
 		});
 	});
+}
+
+function IsUndefined(data)
+{
+	return typeof data === 'undefined';
 }
