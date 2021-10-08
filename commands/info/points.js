@@ -51,7 +51,6 @@ module.exports = {
 
 function GetChannelData(channelName)
 {
-	//https://api.streamelements.com/kappa/v2/channels/murilo_rt
 	return new Promise((resolve, reject) => {
 		https.get(`https://api.streamelements.com/kappa/v2/channels/${channelName}`, (resp) => {
 			let data = '';
