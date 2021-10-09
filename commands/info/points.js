@@ -25,7 +25,7 @@ module.exports = {
 				return;
 			}
 			
-			GetPoints(channelData._id, args[0]).then(farmData => {
+			GetLoyaltyPoints(channelData._id, args[0]).then(farmData => {
 				//console.log(farmData)
 				
 				if(IsUndefined(farmData.points)){
@@ -84,7 +84,7 @@ function GetChannelData(channelName)
 	});
 }
 
-function GetPoints(channelId, username)
+function GetLoyaltyPoints(channelId, username)
 {
 	//Example URL: https://api.streamelements.com/kappa/v2/points/5989df9d5fbe120a16fd3ae0/naoconhecido
 	//Response: {"channel":"5989df9d5fbe120a16fd3ae0","username":"naoconhecido","points":18418,"pointsAlltime":113518,"watchtime":696220,"rank":555}
