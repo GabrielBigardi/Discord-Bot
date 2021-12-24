@@ -7,10 +7,10 @@ const { stripIndents } = require("common-tags");
 const http = require('https');
 
 module.exports = {
-    name: "tokens",
+    name: "token",
     category: "info",
-    description: "Checa uma lista de tokens.",
-    usage: "[comando]",
+    description: "Checa um tokens",
+    usage: "[comando] <token>",
     run: async (client, message, args) => {
 		if (!args[0]) return;
 		
