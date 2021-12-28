@@ -12,15 +12,24 @@ module.exports = {
 			let tokens = GetString(x,'https://thebittimes.com/token-','.html">');
 			let tokensLaunchedAt = GetString(x,'Deploy At ','"');
 			let { name, platform, contract}  = ParseTokenString(tokens);
-							
-			const embed = new MessageEmbed()
+			CheckHoneypot.then(x => {
+				const embed = new MessageEmbed()
 				.setColor('#00FF00')
 				.addField('Informação', stripIndents`
 					**Nome:** ${name}
 					**Plataforma:** ${platform}
 					**Contrato:** ${contract}
-					**Lançamento:** ${tokensLaunchedAt}`, true);
-			message.channel.send(embed);
+					**Lançamento:** ${tokensLaunchedAt}
+					**Honeypot:** ${x.IsHoneypot}
+					**Erro:** ${x.Error}
+					**MaxTxAmount:** ${x.MaxTxAmount}
+					**MaxTxAmount BNB:** ${x.MaxTxAmountBNB}
+					**Buy Tax:** ${x.BuyTax}
+					**Sell Tax:** ${x.SellTax}
+					**Buy Gas:** ${x.BuyGas}
+					**Sell Gas:** ${x.SellGas}`, true);
+				message.channel.send(embed);
+			})
 		})
     }
 }
@@ -65,4 +74,28 @@ function ParseTokenString(string){
 		platform,
 		contract
 	}
+}
+
+function CheckHoneypot(contract){
+		return new Promise((resolve, reject) => {
+		https.get(`https://aywt3wreda.execute-api.eu-west-1.amazonaws.com/default/IsHoneypot?chain=bsc2&token=${contract}`, (resp) => {
+			let data = '';
+			resp.on('data', (chunk) => {
+				data += chunk;
+			});
+		
+			resp.on('end', () => {
+				try{
+					const parsedData = JSON.parse(data);
+					resolve(parsedData);
+				}catch(e){
+					reject(e.message);
+				}
+				
+			});
+		
+		}).on("error", (e) => {
+			reject(e.message);
+		});
+	});
 }
