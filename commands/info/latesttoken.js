@@ -10,14 +10,14 @@ module.exports = {
     run: async (client, message, args) => {
 		GetLatestTokens().then(x => {
 			let tokens = GetString(x,'https://thebittimes.com/token-','.html">');
-			message.channel.log(ParseTokenString(tokens));
+			let name, platform, contract = ParseTokenString(tokens);
 							
 			const embed = new MessageEmbed()
 				.setColor('#00FF00')
 				.addField('Informação', stripIndents`
-					**Nome:** ${args[0]}
-					**Plataforma:** ${channelData.displayName}
-					**Contrato:** ${farmData.points}`, true);
+					**Nome:** ${name}
+					**Plataforma:** ${platform}
+					**Contrato:** ${contract}`, true);
 			message.channel.send(embed);
 		})
     }
