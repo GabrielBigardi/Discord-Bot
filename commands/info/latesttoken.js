@@ -10,6 +10,7 @@ module.exports = {
     run: async (client, message, args) => {
 		GetLatestTokens().then(x => {
 			let tokens = GetString(x,'https://thebittimes.com/token-','.html">');
+			let tokensLaunchedAt = GetString(x,'Deploy At ','"');
 			let { name, platform, contract}  = ParseTokenString(tokens);
 							
 			const embed = new MessageEmbed()
@@ -17,7 +18,8 @@ module.exports = {
 				.addField('Informação', stripIndents`
 					**Nome:** ${name}
 					**Plataforma:** ${platform}
-					**Contrato:** ${contract}`, true);
+					**Contrato:** ${contract}
+					**Lançamento:** ${tokensLaunchedAt}`, true);
 			message.channel.send(embed);
 		})
     }
