@@ -15,11 +15,12 @@ module.exports = {
 			CheckHoneypot(contract).then(x => {
 				const embed = new MessageEmbed()
 				.setColor('#00FF00')
-				.addField('Informação', stripIndents`
+				.addField('Informação - Token', stripIndents`
 					**Nome:** ${name}
 					**Plataforma:** ${platform}
 					**Contrato:** ${contract}
-					**Lançamento:** ${tokensLaunchedAt}
+					**Lançamento:** ${tokensLaunchedAt}`, true)
+				.addField('Informações - Honeypot', stripIndents`
 					**Honeypot:** ${x.IsHoneypot}
 					**Erro:** ${x.Error}
 					**MaxTxAmount:** ${x.MaxTxAmount}
@@ -27,7 +28,7 @@ module.exports = {
 					**Buy Tax:** ${x.BuyTax}
 					**Sell Tax:** ${x.SellTax}
 					**Buy Gas:** ${x.BuyGas}
-					**Sell Gas:** ${x.SellGas}`, true);
+					**Sell Gas:** ${x.SellGas}`);
 				message.channel.send(embed);
 			})
 		})
