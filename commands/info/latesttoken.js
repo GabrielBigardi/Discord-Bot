@@ -12,7 +12,7 @@ module.exports = {
 			let tokens = GetString(x,'https://thebittimes.com/token-','.html">');
 			let tokensLaunchedAt = GetString(x,'Deploy At ','"');
 			let { name, platform, contract}  = ParseTokenString(tokens);
-			CheckHoneypot.then(x => {
+			CheckHoneypot(contract).then(x => {
 				const embed = new MessageEmbed()
 				.setColor('#00FF00')
 				.addField('Informação', stripIndents`
