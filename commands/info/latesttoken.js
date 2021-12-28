@@ -10,7 +10,7 @@ module.exports = {
     run: async (client, message, args) => {
 		GetLatestTokens().then(x => {
 			let tokens = GetString(x,'https://thebittimes.com/token-','.html">');
-			let name, platform, contract = ParseTokenString(tokens);
+			let { name, platform, contract}  = ParseTokenString(tokens);
 							
 			const embed = new MessageEmbed()
 				.setColor('#00FF00')
