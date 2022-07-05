@@ -4,7 +4,7 @@
   "description": "nothing",
   "main": "index.js",
   "dependencies": {
-    "@discordjs/opus": "^0.3.3",
+    "@discordjs/opus": "^0.8.0",
     "@vitalets/google-translate-api": "^4.0.0",
     "ascii-table": "0.0.9",
     "colors": "^1.4.0",
