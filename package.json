@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
-    "@vitalets/google-translate-api": "^4.0.0",
+    "@vitalets/google-translate-api": "^9.1.0",
     "ascii-table": "0.0.9",
     "colors": "^1.4.0",
     "common-tags": "^1.8.0",
@@ -15,7 +15,7 @@
     "ffmpeg": "0.0.4",
     "fluent-ffmpeg": "^2.1.2",
     "fs": "0.0.1-security",
-    "gamedig": "^2.0.28",
+    "gamedig": "^4.0.6",
     "http": "0.0.1-security",
     "https": "^1.0.0",
     "jimp": "^0.16.1",
